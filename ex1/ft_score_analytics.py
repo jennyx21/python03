@@ -1,7 +1,7 @@
 import sys
 
 
-def ft_score_analytics():
+def ft_score_analytics() -> None:
     print("=== Player Score Analytics ===")
     arglist = []
     if len(sys.argv) > 1:
