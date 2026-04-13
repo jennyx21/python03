@@ -2,7 +2,9 @@ from typing import Generator
 import random
 
 
-def consume_event(events: list):
+def consume_event(events:
+                  list) -> Generator[tuple[tuple[str, str],
+                                           list], None, None]:
     for event in events:
         x = random.choice(events)
         rest = events.copy()
@@ -17,7 +19,7 @@ def gen_event(name: list,
         yield player_event
 
 
-def main():
+def main() -> None:
     print("=== Game Data Stream Processor ===")
     i = 0
     name_list = [
@@ -54,20 +56,22 @@ def main():
 
     gen = gen_event(name_list, action_list)
     for i in range(1000):
-        x = next(gen)
-        player, action = x
+        v = next(gen)
+        player, action = v
         print(f"Event {i}: Player {player} did Action {action}")
     gen = gen_event(name_list, action_list)
     events = []
     for i in range(10):
         events.append(next(gen))
     print(f"Build list of 10 Events: {events}")
-    x = ()
+    events_copy: list[tuple[str, str]] = events
+    x: tuple[str, str] = ("", "")
+    genor: Generator[tuple[tuple[str, str], list],
+                     None, None] = consume_event(events_copy)
     for event in events:
-        gen = consume_event(events)
-        x, events = next(gen)
+        x, events_copy = next(genor)
         print(f"got event from list: {x}")
-        print(f"Remains in list: {events}")
+        print(f"Remains in list: {events_copy}")
 
 
 if __name__ == "__main__":

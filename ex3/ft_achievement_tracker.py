@@ -25,7 +25,7 @@ def gen_player_achievements(num: int) -> set:
     return achiv_set
 
 
-def ft_achievement_tracker():
+def ft_achievement_tracker() -> None:
     print("=== Achievement Tracker System ===\n")
     alice = gen_player_achievements(random.randint(4, 9))
     bob = gen_player_achievements(random.randint(4, 9))

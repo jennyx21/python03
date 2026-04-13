@@ -1,16 +1,16 @@
 import sys
 
 
-def get_key_value(d, value):
+def get_key_value(d, value) -> object | None:
     for key, val in d.items():
         if val == value:
             return key
     return None
 
 
-def ft_inventory_system():
+def ft_inventory_system() -> None:
     print("=== Inventroty System Analysis ===")
-    result = {}
+    result: dict[str, int] = {}
     rlist = []
     args = sys.argv[1:]
 
