@@ -1,4 +1,5 @@
 import sys
+# this python module is for teaching us the dict.
 
 
 def get_key_value(d, value) -> object | None:

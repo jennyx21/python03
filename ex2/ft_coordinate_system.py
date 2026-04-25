@@ -1,4 +1,5 @@
 import math
+# this python project is teaching us how to us tuples
 
 
 def get_player_pos() -> tuple[float, float, float]:

@@ -1,4 +1,5 @@
 import random
+# this putkon project is showig us how to us lists
 
 
 def gen_player_achievements(num: int) -> set:
